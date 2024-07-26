@@ -122,7 +122,7 @@ class Keylogger:
 # Starts the program
 if __name__ == "__main__":
 
-    # Creates variable "current" which stores the intial time of th efirst keystroke
+    # Creates variable "current" which stores the intial time of the first keystroke
     current = time.perf_counter()
 
     # Starts the code in class Keylogger
