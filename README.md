@@ -16,10 +16,10 @@ Tracks user's keystrokes, saves keystrokes into text file, then periodically sen
 
 
 - Initializes self as instance of Key Logger object, assumes caps lock is intially false
-- 'if __name__ = __main__' begins running code
+- 'if __name__ == __main__' begins running code
 - Variable `current` tracks time since program has started
 - keyPressed function checks if 3600 seconds have passed after a key is pressed and sends key logs to target emails accordingly
-- New 'current' variable is created after text file is sent, resetting counter for 3600 seconds to pass
+- New `current` variable is created after text file is sent, resetting counter for 3600 seconds to pass
 - Try-except statement catches common keys that cannot be logged using pynput
 
 ## Important Details
